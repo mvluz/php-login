@@ -11,11 +11,11 @@
     }],
     "autoload": {
         "psr-4": {
-            "source\\": "source"
+            "source\\": "Source"
         },
         "files": [
-            "source/Config.php",
-            "source/Helpers.php"
+            "Source/Config.php",
+            "Source/Helpers.php"
         ]
     },
     "require": {

@@ -14,6 +14,15 @@ function site(string $param = null): string
 }
 
 /**
+ *  @param string $imageURL
+ *  @return string
+ */
+function routerImage(string $imageURL): string
+{    
+    return "https://via.placeholder.com/600x400/0984e3/ffffff?text={$imageURL}";
+}
+
+/**
  *  @param string $path
  *  @return string
  */

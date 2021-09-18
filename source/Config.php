@@ -9,7 +9,7 @@ define("SITE", [
     "desc" => "Aprenda a construir uma aplicação de autenticação em MVC com PHP. Curso Gratuito youtube.com/upinside",
     "domain" => "local.com",
     "locale" => "pt_BR",
-    "root" => "http://localhost/php-login"
+    "root" => "https://localhost/php-login"
 ]);
 
 /**

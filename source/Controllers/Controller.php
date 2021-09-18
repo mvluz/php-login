@@ -4,15 +4,14 @@ namespace Source\Controllers;
 
 use CoffeeCode\Optimizer\Optimizer;
 use CoffeeCode\Router\Router;
-use League\OAuth2\Client\Provider\Facebook;
 use League\Plates\Engine;
 
 /**
  * Class Controller
- * @package Source\Controllers
+ * @package source\Controllers
  */
 
-abstract class Controllers
+abstract class Controller
 {
     /** @var Engine */
     protected $view;
@@ -35,7 +34,7 @@ abstract class Controllers
         $this->seo->openGraph(site("name"), site("locale"),"article")
             ->publisher(SOCIAL["facebook_page"],SOCIAL["facebook_author"])
             ->twitterCard(SOCIAL["twitter_creator"],SOCIAL["twitter_site"],site("domain"))
-            ->facebook(SOCIAL["facebook_appId"]);
+            ->facebook(SOCIAL["facebook_appId"]);        
     }
 
     /**
