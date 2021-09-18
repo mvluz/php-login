@@ -6,9 +6,7 @@ require __DIR__ . "/vendor/autoload.php";
 require __DIR__ . "/Source/Controllers/Controller.php";
 require __DIR__ . "/Source/Controllers/Web.php";
 
-<<<<<<< HEAD
 use CoffeeCode\Router\Router;
-
 
 $router = new Router(site());
 $router->namespace("Source\Controllers");
@@ -55,6 +53,3 @@ if($router->error()){
 }
 
 ob_end_flush();
-=======
-ob_get_flush();
->>>>>>> parent of 86dfc40 (configured index.php and source/Controllers/Controller.php)
