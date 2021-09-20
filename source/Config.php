@@ -42,7 +42,7 @@ define("DATA_LAYER_CONFIG", [
  */
 define("SOCIAL",[
     "facebook_page" => "",
-    "facebook_autor" => "",
+    "facebook_author" => "",
     "facebook_appId" => "",
     "twitter_creator" => "",
     "twitter_site" => ""
