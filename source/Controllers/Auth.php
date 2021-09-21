@@ -32,7 +32,7 @@ class Auth extends Controller
             ]);
             return;
         }
-
+/*
         if(!filter_var($data["email"], FILTER_VALIDATE_EMAIL)){
             echo $this->ajaxResponse("message", [
                 "type" => "error",
@@ -49,14 +49,21 @@ class Auth extends Controller
             ]);
             return;
         }
-        
+*/        
         $user = new User;
         $user->userFirstName = $data["first_name"];
         $user->userLastName = $data["last_name"];
         $user->userEmail = $data["email"];
-        $user->userPassword = password_hash($data["passwd"],PASSWORD_DEFAULT);
+        $user->userPassword = $data["passwd"];
 
-        $user->save();
+        if(!$user->save()){
+            echo $this->ajaxResponse("message", [
+                "type" => "error",
+                "message" => $user->fail()->getMessage()
+            ]);
+            return;
+        }
+        
         $_SESSION["user"] = $user->id;
 
         echo $this->ajaxResponse("redirect", [
