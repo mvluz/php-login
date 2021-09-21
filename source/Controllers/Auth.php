@@ -22,6 +22,40 @@ class Auth extends Controller
     /**
      * @param	$data	
      */
+    public function login($data): void
+    {
+        $email = filter_var($data["email"], FILTER_VALIDATE_EMAIL);
+        $passwd = filter_var($data["passwd"], FILTER_DEFAULT);
+
+        if(!$email || !$passwd){
+            echo $this->ajaxResponse("message", [
+                "type" => "alert",
+                "message" => "Informe seu e-mail e senha para fazer Log In"
+            ]);
+            return;
+        }
+
+        $user = (new User())->find("userEmail = :email", "email={$email}")->fetch();
+        
+        if(!$user || password_verify($passwd, $user->userPassword)){
+            echo $this->ajaxResponse("message", [
+                "type" => "error",
+                "message" => "E-mail ou Senha informados não conforem"
+            ]);
+            return;
+        }
+
+        $_SESSION["user"] = $user->id;
+        echo $this->ajaxResponse("redirect", [
+            "url" => $this->router->route("app.home")
+        ]);
+        
+    }
+
+
+    /**
+     * @param	$data	
+     */
     public function register($data): void
     {
         $data = filter_var_array($data, FILTER_SANITIZE_STRIPPED);

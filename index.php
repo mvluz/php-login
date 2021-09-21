@@ -6,6 +6,7 @@ require __DIR__ . "/vendor/autoload.php";
 require __DIR__ . "/Source/Controllers/Controller.php";
 require __DIR__ . "/Source/Controllers/Web.php";
 require __DIR__ . "/Source/Controllers/Auth.php";
+require __DIR__ . "/Source/Controllers/App.php";
 require __DIR__ . "/Source/Models/User.php";
 
 use CoffeeCode\Router\Router;
@@ -29,6 +30,8 @@ $router->get("/senha/{email}/{forget}","Web:reset","web.reset");
 $router->group(null);
 $router->post("/login","Auth:login","auth.login");
 $router->post("/register","Auth:register","auth.register");
+$router->post("/forget","Auth:forget","auth.forget");
+$router->post("/reset","Auth:reset","auth.reset");
 
 
 /**
@@ -38,6 +41,9 @@ $router->post("/register","Auth:register","auth.register");
 /**
  * PROFILE
  */
+$router->group("agenda");
+$router->get("/","App:home","app.home");
+$router->get("/sair","App:logoff","app.logoff");
 
 /**
  * ERROR
